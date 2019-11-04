@@ -36,11 +36,11 @@ allowedAgeBracket(17);
 echo "<br>";
 
 
-echo $_SESSION["user_info"]["fullname"];
+echo "Welcome ". $_SESSION["user_info"]["fullname"];
 
 echo "<br>";
 
-echo $_SESSION["user_info"]["email"];
+echo "Your email is ". $_SESSION["user_info"]["email"];
 
 
 
