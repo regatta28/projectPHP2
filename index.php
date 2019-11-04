@@ -46,27 +46,69 @@ $_SESSION["user_info"] = array(
     "email" =>    "st@st.com"
 );
 
-
-
 // $_POST - collect data from forms
-
 // $_GET - is used to collect data from forms through the url
 
 // $_FILES - is used to collect files from forms
 
-// $_SERVER - keeps Paths and hearders
+// $_SERVER - keeps Paths and hearders 
 
-
-
-
-
-
-
-
-
-
-
-
-
+echo "<br><br>";
 
 ?>
+
+
+
+
+
+
+<!-- <form method="post" action="forms.php">
+<h3>Form with Post method</h3>
+    Name: <input type="text" name="fullname">
+    Email: <input type="text" name="email">
+
+    <input type="submit" class="btn btn-primary">
+</form> -->
+
+<br><br>
+
+
+<form method="get" action="<?php echo $_SERVER["PHP_SELF"];?>">
+<h3>Form with Get method</h3>
+    Name: <input type="text" name="fullname">
+    Email: <input type="text" name="email">
+
+    <input type="submit" class="btn btn-primary">
+</form>
+
+<?php
+
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    //collect value of input field name
+
+    $name = $_GET["fullname"];
+    $email = $_GET["email"];
+
+    if (empty($name)) {
+        echo "Name is empty";
+    }else{
+        echo "Your name is ". $name;
+    }
+}
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
