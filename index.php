@@ -71,13 +71,15 @@ echo "<br><br>";
 </form> -->
 
 <br><br>
+<link rel="stylesheet" href="style.css" type="text/css">
 
-
-<form method="get" action="<?php echo $_SERVER["PHP_SELF"];?>">
-<h3>Form with Get method</h3>
-    Name: <input type="text" name="fullname">
-    Email: <input type="text" name="email">
-
+<form method="get" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<h3>Form with Get method and using validating methods</h3>
+    Name: <input type="text" name="fullname"   class="box"><br><br>
+    Email: <input type="text" name="email" class="box"><br><br>
+    Password: <input type="text" name="password" placeholder="Enter password" class="box"><br><br>
+    Gender : <br><input type="radio" name="gender" value="female" class="box">Female<br><br>
+    <input type="radio" name="gender" value="male" class="box">Male<br><br>
     <input type="submit" class="btn btn-primary">
 </form>
 
@@ -87,14 +89,27 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     //collect value of input field name
 
     $name = $_GET["fullname"];
-    $email = $_GET["email"];
+    $raw_password = $_GET["password"];
+    $raw_email = trim($_GET["email"]);
+    $gender = $_GET["gender"];
+    $clean_email = filter_var($raw_email, FILTER_VALIDATE_EMAIL);
 
     if (empty($name)) {
         echo "Name is empty";
     }else{
         echo "Your name is ". $name;
+        echo "<br><br>";
+        echo "You are " .$gender;
+        echo "<br><br>";
+    }
+    if (($raw_password || $clean_email)) {
+        echo "Your email is ". $clean_email; echo "<br><br>";
+        echo "Your password is recorded";
+    }else{
+        echo "Nothing entered";
     }
 }
+
 
 ?>
 

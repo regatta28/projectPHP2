@@ -1,0 +1,8 @@
+
+.box{
+    font-family:Tahoma, 'Gill Sans', sans-serif;
+    padding:10px;
+    background-color:rgb(245, 235, 235);
+    border:2px solid rgb(243, 24, 243);
+    border-radius: 10px;
+}
