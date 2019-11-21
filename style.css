@@ -6,3 +6,8 @@
     border:2px solid rgb(243, 24, 243);
     border-radius: 10px;
 }
+
+.container h2{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: purple;
+}
